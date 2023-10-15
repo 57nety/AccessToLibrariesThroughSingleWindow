@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/content/aboutBook/aboutBookElibAltstu.css}"/>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/search.css}"/>
+    <link rel="stylesheet" th:href="@{/css/profile.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Личный кабинет</title>
+</head>
+<body>
+
+<!-- Шапка -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="buttons">
+        <form action="/books/preview" method="GET">
+            <button class="btn btn-light" type="submit">Книги</button>
+        </form>
+        <form action="/disciplines/preview" method="GET">
+            <button class="btn btn-light" type="submit">Дисциплины</button>
+        </form>
+    </div>
+    <div class="text">
+        <h2>Единое окно доступа к библиотекам</h2>
+    </div>
+    <div class="images">
+        <form action="/profile" method="GET">
+            <button type="submit" name="imageButton" value="submit1" class="btn btn-light">
+                <img src="/images/profile.png" alt="Profile" class="submit-image">
+            </button>
+        </form>
+        <form action="/logout" method="GET">
+            <button type="submit" name="imageButton" value="submit2" class="btn btn-light">
+                <img src="/images/logout.png" alt="Logout" class="submit-image">
+            </button>
+        </form>
+    </div>
+</nav>
+
+<!-- Содержимое страницы -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="profile-column">
+                <h4>Личный кабинет</h4>
+                <hr style="border-color: blue;">
+                <p>Логин: <span th:text="${login}">LOGIN</span></p>
+                <form action="/logout" method="GET">
+                    <div class="text-center">
+                        <button class="btn btn-primary">Выйти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="text-center">
+                <div class="buttons">
+                    <form action="/profile/favorites" method="GET">
+                        <button class="btn btn-primary" type="submit">Избранное</button>
+                    </form>
+                    <form action="/profile/storysearch" method="GET">
+                        <button class="btn btn-light" type="submit">История поиска</button>
+                    </form>
+                    <form action="/profile/storydownload" method="GET">
+                        <button class="btn btn-light" type="submit">История скачиваний</button>
+                    </form>
+                </div>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Библиотека</th>
+                        <th style="width: 400px;">Название книги</th>
+                        <th>Ссылка на книгу</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Заполнение данными из объекта storySearch -->
+                    <tr th:each="favorite : ${favorites}">
+                        <td th:text="${favorite.library}"></td>
+                        <td th:text="${favorite.bookTitle}"></td>
+                        <td>
+                            <form id="formGoToBook"
+                                  th:action="${favorite.library == 'ЭБС АлтГТУ' ? '/books/altstu/aboutfavoritebook' : '/books/iprsmart/aboutfavoritebook'}">
+                                <input type="hidden" name="favoriteBook" th:value="${favorite}"/>
+                                <div class="btn-goto">
+                                    <button class="btn btn-light">Перейти</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

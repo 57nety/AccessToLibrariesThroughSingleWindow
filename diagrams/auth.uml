@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.alexenko.diplom.controllers.AuthController</OriginalElement>
+  <nodes>
+    <node x="91.0" y="61.239999999999995">ru.alexenko.diplom.database.services.UserService</node>
+    <node x="348.9687200000001" y="134.0">ru.alexenko.diplom.libs.elibaltstu.ElibAltstuApiService</node>
+    <node x="83.25" y="134.0">ru.alexenko.diplom.services.AuthService</node>
+    <node x="78.5" y="-15.746666666666666">ru.alexenko.diplom.database.repositories.UserRepository</node>
+    <node x="-159.13666666666666" y="134.0">ru.alexenko.diplom.controllers.AuthController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.alexenko.diplom.controllers.AuthController" target="ru.alexenko.diplom.services.AuthService" relationship="TO_ONE">
+      <point x="71.5" y="-0.0" />
+      <point x="-62.5" y="-0.0" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.repositories.UserRepository" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.services.AuthService" target="ru.alexenko.diplom.libs.elibaltstu.ElibAltstuApiService" relationship="TO_ONE">
+      <point x="62.5" y="0.0" />
+      <point x="-87.5" y="0.0" />
+    </edge>
+    <edge source="ru.alexenko.diplom.services.AuthService" target="ru.alexenko.diplom.database.services.UserService" relationship="TO_ONE">
+      <point x="6.25" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.2" showDependencies="true" x="223.00265386666644" y="124.51869973333322" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

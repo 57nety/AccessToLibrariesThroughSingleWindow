@@ -1,0 +1,10 @@
+.book-info {
+    border: 2px solid blue;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.book-info img {
+    float: left;
+    margin-right: 10px;
+}

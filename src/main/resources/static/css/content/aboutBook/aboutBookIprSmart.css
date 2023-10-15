@@ -1,0 +1,23 @@
+.book-info {
+    border: 2px solid blue;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.book-info .book-image {
+    width: auto;
+    height: 200px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.info {
+    flex-grow: 1;
+}
+
+.info .description {
+    margin-top: 10px;
+    width: 100%;
+}

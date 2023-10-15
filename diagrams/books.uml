@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.alexenko.diplom.services.BookService</OriginalElement>
+  <nodes>
+    <node x="277.0" y="64.0">ru.alexenko.diplom.database.services.FavoritesService</node>
+    <node x="675.5" y="-15.0">ru.alexenko.diplom.database.repositories.StoryDownloadRepository</node>
+    <node x="460.5" y="-15.0">ru.alexenko.diplom.database.repositories.StorySearchRepository</node>
+    <node x="473.0" y="64.0">ru.alexenko.diplom.database.services.StorySearchService</node>
+    <node x="-109.0" y="64.0">ru.alexenko.diplom.libs.iprsmart.IprSmartApiService</node>
+    <node x="4.25" y="143.0">ru.alexenko.diplom.services.BookService</node>
+    <node x="317.1328125" y="222.0">ru.alexenko.diplom.controllers.BookController</node>
+    <node x="82.0" y="64.0">ru.alexenko.diplom.libs.elibaltstu.ElibAltstuApiService</node>
+    <node x="-85.0" y="-23.63003663003667">ru.alexenko.diplom.libs.iprsmart.jwt.JwtProvider</node>
+    <node x="687.5" y="64.0">ru.alexenko.diplom.database.services.StoryDownloadService</node>
+    <node x="264.5" y="-15.0">ru.alexenko.diplom.database.repositories.FavoritesRepository</node>
+    <node x="901.5" y="64.0">ru.alexenko.diplom.database.repositories.UserRepository</node>
+    <node x="610.25" y="143.0">ru.alexenko.diplom.database.services.UserService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.alexenko.diplom.services.BookService" target="ru.alexenko.diplom.libs.iprsmart.IprSmartApiService" relationship="TO_ONE">
+      <point x="-13.25" y="-14.5" />
+      <point x="78.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.services.BookService" target="ru.alexenko.diplom.libs.elibaltstu.ElibAltstuApiService" relationship="TO_ONE">
+      <point x="21.75" y="-14.5" />
+      <point x="-80.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.repositories.UserRepository" relationship="TO_ONE">
+      <point x="61.0" y="0.0" />
+      <point x="975.0" y="157.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.services.StorySearchService" relationship="TO_ONE">
+      <point x="-35.75" y="-14.5" />
+      <point x="77.5" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.services.StoryDownloadService" relationship="TO_ONE">
+      <point x="23.75" y="-14.5" />
+      <point x="-89.5" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.StorySearchService" target="ru.alexenko.diplom.database.repositories.StorySearchRepository" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.controllers.BookController" target="ru.alexenko.diplom.database.services.UserService" relationship="TO_ONE">
+      <point x="73.0" y="0.0" />
+      <point x="671.25" y="236.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.services.FavoritesService" relationship="TO_ONE">
+      <point x="-61.0" y="0.0" />
+      <point x="405.1328125" y="157.5" />
+      <point x="52.6328125" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.controllers.BookController" target="ru.alexenko.diplom.services.BookService" relationship="TO_ONE">
+      <point x="-73.0" y="-0.0" />
+      <point x="67.75" y="236.5" />
+      <point x="-0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.StoryDownloadService" target="ru.alexenko.diplom.database.repositories.StoryDownloadRepository" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.libs.iprsmart.IprSmartApiService" target="ru.alexenko.diplom.libs.iprsmart.jwt.JwtProvider" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.FavoritesService" target="ru.alexenko.diplom.database.repositories.FavoritesRepository" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9269949066213934" showDependencies="true" x="268.3981168232335" y="148.38609306048232" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

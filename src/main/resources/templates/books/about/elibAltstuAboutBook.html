@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/content/aboutBook/aboutBookElibAltstu.css}"/>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/search.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Книги</title>
+</head>
+<body>
+
+<!--Шапка-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="buttons">
+        <form action="/books/preview" method="GET">
+            <button class="btn btn-primary" type="submit" th:text="Книги"></button>
+        </form>
+        <form action="/disciplines/preview" method="GET">
+            <button class="btn btn-light" type="submit" th:text="Дисциплины"></button>
+        </form>
+    </div>
+    <div class="text">
+        <h2>Единое окно доступа к библиотекам</h2>
+    </div>
+    <div class="images">
+        <form action="/profile" method="GET">
+            <button type="submit" name="imageButton" value="submit1" class="btn btn-light">
+                <img th:src="@{/images/profile.png}" alt="Submit 1" class="submit-image">
+            </button>
+        </form>
+        <form action="/logout" method="GET">
+            <button type="submit" name="imageButton" value="submit2" class="btn btn-light">
+                <img th:src="@{/images/logout.png}" alt="Submit 2" class="submit-image">
+            </button>
+        </form>
+    </div>
+</nav>
+
+<!--Поиск-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/books/search" method="GET" class="search-form">
+                <div class="input-group">
+                    <input type="text" name="query" placeholder="Введите свой запрос" class="form-control">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Поиск</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Блок с информацией о книге-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="book-info">
+                <h4><p><span th:text="${book.title}">TITLE</span></p></h4>
+                <p><b>Авторы: </b><span th:text="${book.authorFio}">AUTHOR</span></p>
+                <p><b>Год выпуска: </b><span th:text="${book.matYear}">YEAR</span></p>
+                <div class="buttons">
+                    <form id="downloadForm" action="/books/download" method="GET">
+                        <input type="hidden" name="book" th:value="${book}">
+                        <button class="btn btn-primary" type="submit" th:text="Скачать"></button>
+                    </form>
+                    <div class="text-center">
+                        <div th:if="${isFavorite}">
+                            <form action="/books/altstu/deletefavoritebook" method="GET">
+                                <input type="hidden" name="book" th:value="${book}">
+                                <button class="btn btn-danger" type="submit">Удалить из избранного</button>
+                            </form>
+                        </div>
+                        <div th:unless="${isFavorite}">
+                            <form action="/books/altstu/addfavoritebook" method="GET">
+                                <input type="hidden" name="book" th:value="${book}">
+                                <button class="btn btn-success" type="submit">Добавить в избранное</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.alexenko.diplom.database.services.StorySearchService</OriginalElement>
+  <nodes>
+    <node x="-96.5" y="64.0">ru.alexenko.diplom.database.services.FavoritesService</node>
+    <node x="221.25" y="222.0">ru.alexenko.diplom.controllers.ProfileController</node>
+    <node x="236.75" y="143.0">ru.alexenko.diplom.database.services.UserService</node>
+    <node x="-109.0" y="-15.0">ru.alexenko.diplom.database.repositories.FavoritesRepository</node>
+    <node x="99.5" y="64.0">ru.alexenko.diplom.database.services.StorySearchService</node>
+    <node x="87.0" y="-15.0">ru.alexenko.diplom.database.repositories.StorySearchRepository</node>
+    <node x="314.0" y="64.0">ru.alexenko.diplom.database.services.StoryDownloadService</node>
+    <node x="302.0" y="-15.0">ru.alexenko.diplom.database.repositories.StoryDownloadRepository</node>
+    <node x="528.0" y="64.0">ru.alexenko.diplom.database.repositories.UserRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.alexenko.diplom.controllers.ProfileController" target="ru.alexenko.diplom.database.services.UserService" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.repositories.UserRepository" relationship="TO_ONE">
+      <point x="61.0" y="0.0" />
+      <point x="601.5" y="157.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.services.StorySearchService" relationship="TO_ONE">
+      <point x="-35.75" y="-14.5" />
+      <point x="77.5" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.StorySearchService" target="ru.alexenko.diplom.database.repositories.StorySearchRepository" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.services.StoryDownloadService" relationship="TO_ONE">
+      <point x="23.75" y="-14.5" />
+      <point x="-89.5" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.UserService" target="ru.alexenko.diplom.database.services.FavoritesService" relationship="TO_ONE">
+      <point x="-61.0" y="0.0" />
+      <point x="-21.0" y="157.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.StoryDownloadService" target="ru.alexenko.diplom.database.repositories.StoryDownloadRepository" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ru.alexenko.diplom.database.services.FavoritesService" target="ru.alexenko.diplom.database.repositories.FavoritesRepository" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0766169154228864" showDependencies="true" x="268.2974327816932" y="83.64421946883553" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

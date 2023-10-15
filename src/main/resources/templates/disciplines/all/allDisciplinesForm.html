@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/content/allBooks.css}"/>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/search.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Дисциплины</title>
+</head>
+<body>
+
+<!--Шапка-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="buttons">
+        <form action="/books/preview" method="GET">
+            <button class="btn btn-light" type="submit" th:text="Книги"></button>
+        </form>
+        <form action="/disciplines/preview" method="GET">
+            <button class="btn btn-primary" type="submit" th:text="Дисциплины"></button>
+        </form>
+    </div>
+    <div class="text">
+        <h2>Единое окно доступа к библиотекам</h2>
+    </div>
+    <div class="images">
+        <form action="/profile" method="GET">
+            <button type="submit" name="imageButton" value="submit1" class="btn btn-light">
+                <img th:src="@{/images/profile.png}" alt="Submit 1" class="submit-image">
+            </button>
+        </form>
+        <form action="/logout" method="GET">
+            <button type="submit" name="imageButton" value="submit2" class="btn btn-light">
+                <img th:src="@{/images/logout.png}" alt="Submit 2" class="submit-image">
+            </button>
+        </form>
+    </div>
+</nav>
+
+<!--Поиск-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/disciplines/search" method="GET" class="search-form">
+                <div class="input-group">
+                    <input type="text" name="query" placeholder="Введите свой запрос" class="form-control">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Поиск</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Форма с чекбоксами-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form id="checkbox-form" class="form-inline justify-content-center mb-5">
+                <div class="form-check mr-3">
+                    <input class="form-check-input" type="checkbox" name="altstu" id="altstuCheckbox" checked>
+                    <label class="form-check-label" for="altstuCheckbox">
+                        ЭБС АлтГТУ
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="iprsmart" id="iprsmartCheckbox" checked>
+                    <label class="form-check-label" for="iprsmartCheckbox">
+                        IPR SMART
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Вывод информации-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-4 altstu-column">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3 class="card-title">ЭБС АлтГТУ</h3>
+                </div>
+                <div class="card-body">
+                    <ul th:each="discipline : ${elibAltstuDisciplines}" class="list-group">
+                        <li class="list-group-item">
+                            <div class="book-button" onclick="submitForm(this)">
+                                <form action="/disciplines/altstu/books" method="GET">
+                                    <input type="hidden" name="discipline" th:value="${discipline}"/>
+                                    <span th:text="${discipline.name}">NAME</span>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4 iprsmart-column">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3 class="card-title">IPR SMART</h3>
+                </div>
+                <div class="card-body">
+                    <ul th:if="${#lists.isEmpty(iprSmartDisciplines)}" class="text-center">
+                        Введите запрос для поиска дисциплины
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--JS файл-->
+
+<script th:src="@{/js/script.js}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
